@@ -1,7 +1,5 @@
 #!/bin/bash
-
-sleep 120
-
+#Auto Connect To Bluetooth  
 sudo systemctl start Bluetooth
 
 bluetoothctl << EOF
